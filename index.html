@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Orgen Lampung Request Lagu</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #111, #4b0082);
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background: black;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: gold;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            margin: 40px auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 15px;
+            box-shadow: 0 0 15px gold;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: gold;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: orange;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background: #111;
+            border-radius: 10px;
+        }
+
+        .lamp {
+            font-size: 30px;
+            animation: kelapKelip 1s infinite alternate;
+        }
+
+        @keyframes kelapKelip {
+            from { color: gold; }
+            to { color: violet; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    🎶 ORGEN LAMPUNG 🎶
+</header>
+
+<div class="lamp">✨✨✨</div>
+
+<div class="container">
+    <h2>Request Lagu</h2>
+
+    <input type="text" id="nama" placeholder="Nama kamu">
+    <input type="text" id="lagu" placeholder="Judul lagu">
+    <textarea id="pesan" placeholder="Pesan untuk penyanyi..."></textarea>
+
+    <br>
+    <button onclick="kirim()">Kirim Request</button>
+
+    <div class="output" id="hasil"></div>
+</div>
+
+<script>
+    function kirim() {
+        let nama = document.getElementById("nama").value;
+        let lagu = document.getElementById("lagu").value;
+        let pesan = document.getElementById("pesan").value;
+
+        if(nama === "" || lagu === "") {
+            alert("Nama dan lagu wajib diisi!");
+            return;
+        }
+
+        document.getElementById("hasil").innerHTML =
+            `<p><b>${nama}</b> request lagu:</p>
+             <p><b>${lagu}</b></p>
+             <p>Pesan: ${pesan}</p>
+             <p style="color:gold;">🎤 Siap dimainkan oleh pemain orgen! 🎶</p>`;
+    }
+</script>
+
+</body>
+</html>
